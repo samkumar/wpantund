@@ -693,6 +693,66 @@ baud_rate_to_termios_constant(int baud)
 		ret = B230400;
 		break;
 #endif
+#ifdef B460800
+	case 460800:
+		ret = B460800;
+		break;
+#endif
+#ifdef B500000
+	case 500000:
+		ret = B500000;
+		break;
+#endif
+#ifdef B576000
+	case 576000:
+		ret = B576000;
+		break;
+#endif
+#ifdef B921600
+	case 921600:
+		ret = B921600;
+		break;
+#endif
+#ifdef B1000000
+	case 1000000:
+		ret = B1000000;
+		break;
+#endif
+#ifdef B1152000
+	case 1152000:
+		ret = B1152000;
+		break;
+#endif
+#ifdef B1500000
+	case 1500000:
+		ret = B1500000;
+		break;
+#endif
+#ifdef B2000000
+	case 2000000:
+		ret = B2000000;
+		break;
+#endif
+#ifdef B2500000
+	case 2500000:
+		ret = B2500000;
+		break;
+#endif
+#ifdef B3000000
+	case 3000000:
+		ret = B3000000;
+		break;
+#endif
+#ifdef B3500000
+    case 3500000:
+		ret = B3500000;
+		break;
+#endif
+#ifdef B4000000
+	case 4000000:
+		ret = B4000000;
+		break;
+#endif
 	default:
 		ret = 0;
 		break;
