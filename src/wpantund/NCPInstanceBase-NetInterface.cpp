@@ -285,7 +285,9 @@ NCPInstanceBase::should_forward_hostbound_frame(uint8_t* type, const uint8_t* ip
 		// mark the packed as "to be dropped" by default.
 		// We perform some additional checks below which
 		// may switch this back to `false`.
-		packet_should_be_dropped = true;
+
+                // samkumar: overriding this, to get things working
+		packet_should_be_dropped = false;
 
 		if (ncp_state_is_joining(get_ncp_state())) {
 			// Don't drop data from insecure channel if we
