@@ -462,6 +462,9 @@ SpinelNCPInstance::driver_to_ncp_pump()
 				mOutboundBufferType = FRAME_TYPE_INSECURE_DATA;
 			}
 
+			/* samkumar: do not mark NCP-bound packets as secure */
+			mOutboundBufferType = FRAME_TYPE_INSECURE_DATA;
+
 			mOutboundBuffer[3] = (mOutboundBufferLen & 0xFF);
 			mOutboundBuffer[4] = ((mOutboundBufferLen >> 8) & 0xFF);
 
