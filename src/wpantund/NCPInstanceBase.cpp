@@ -953,8 +953,12 @@ NCPInstanceBase::handle_ncp_state_change(NCPState new_ncp_state, NCPState old_nc
 void
 NCPInstanceBase::reinitialize_ncp(void)
 {
-	PT_INIT(&mControlPT);
-	change_ncp_state(UNINITIALIZED);
+	/*
+	 * samkumar: Removing this functinality. We detect this externally, in a more
+	 * reliable way.
+	 */
+	//PT_INIT(&mControlPT);
+	//change_ncp_state(UNINITIALIZED);
 }
 
 void
@@ -1032,7 +1036,11 @@ NCPInstanceBase::update_busy_indication(void)
 void
 NCPInstanceBase::ncp_is_misbehaving(void)
 {
-	mNCPIsMisbehaving = true;
+	/*
+	 * samkumar: Removing this functionality. We detect this externally, in a more
+	 * reliable way.
+	 */
+	//mNCPIsMisbehaving = true;
 }
 
 // ----------------------------------------------------------------------------

@@ -374,7 +374,11 @@ SpinelNCPInstance::vprocess_init(int event, va_list args)
 			EH_RESTART();
 		}
 
-		if ((event != EVENT_NCP_RESET) && (mFailureCount > 0)) {
+		/*
+                 * samkumar: We have separate mechanisms for restarting the NCP, so
+		 * I'm disabling this one.
+                 */
+		if ((event != EVENT_NCP_RESET) && (mFailureCount > 0) && false) {
 			syslog(LOG_ERR, "Resetting and trying again... (retry %d)", mFailureCount);
 
 			change_ncp_state(UNINITIALIZED);
