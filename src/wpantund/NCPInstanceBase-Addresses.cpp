@@ -506,6 +506,19 @@ NCPInstanceBase::unicast_address_was_added(Origin origin, const struct in6_addr 
 
 		// Add the address on NCP or primary interface (depending on origin).
 
+		/*
+		 * samkumar: We need a way to give the NCP a different IP address from
+		 * the Linux machine running wpantund. Otherwise, we can't send packets
+		 * to the NCP via the Linux host (for heartbeats, etc.).
+		 *
+		 * This change ensures that if the NCP adds an external unicast prefix
+		 * of length 128, it won't be added to the wpan0 interface on the Linux
+		 * host. It is a hack, not a good long term fix!
+		 */
+		if ((origin == kOriginThreadNCP) && (prefix_len == 128)) {
+			goto bail;
+		}
+
 		if ((origin == kOriginThreadNCP) || (origin == kOriginUser)) {
 			mPrimaryInterface->add_address(&address, prefix_len);
 		}
