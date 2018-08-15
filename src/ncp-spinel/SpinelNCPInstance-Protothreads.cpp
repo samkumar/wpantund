@@ -431,7 +431,7 @@ SpinelNCPInstance::vprocess_init(int event, va_list args)
 
 		// If we are "joining" at this point, then we must start over.
 		// This will cause a reset to occur.
-		require(!ncp_state_is_joining(get_ncp_state()), on_error);
+		//require(!ncp_state_is_joining(get_ncp_state()), on_error);
 
 		// This next line causes any resets received after this
 		// point to cause the control protothread to be restarted.

@@ -368,7 +368,9 @@ NCPInstanceBase::should_forward_hostbound_frame(uint8_t* type, const uint8_t* ip
 	// Make sure the interface is up.
 	if (!ncp_state_is_interface_up(get_ncp_state())) {
 		// The interface is down, so we don't send the packet.
-		packet_should_be_dropped = true;
+
+		// samkumar: overriding this; no good reason to drop a packet
+		packet_should_be_dropped = false;
 
 		// Check to see if the NCP is supposed to be asleep:
 		if (ncp_state_is_sleeping(get_ncp_state())) {
